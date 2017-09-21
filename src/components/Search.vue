@@ -118,7 +118,7 @@
                                 data-placement="top" @click="toggleFavorite(result, index)">
                             <span class="glyphicon" v-bind:class="[false ? 'glyphicon-star' : 'glyphicon-star-empty']"></span>
                         </button>
-                        <p>{{ index }} {{ result.favorite }}</p>
+                        <p>{{ index }} {{ result.favorite }} {{ abv }} {{ ibu }}</p>
                     </div>
                 </div>
                 <full-description-modal :result="result" id="fullDescriptionModal"></full-description-modal>
@@ -217,30 +217,30 @@
         // Abv less than or greater than
         if (this.abvRadio === 'lt') {
           this.abvLt = this.abv
-          this.ibuGt = this.abv = null
+          this.abvGt = null
         } else if (this.abvRadio === 'gt') {
           this.abvGt = this.abv
-          this.ibuLt = this.abv = null
+          this.abvLt = null
         } else {
           this.abv = this.abvLt = this.abvGt = null
         }
         // Ibu less than or greater than
         if (this.ibuRadio === 'lt') {
           this.ibuLt = this.ibu
-          this.ibuGt = this.ibu = null
+          this.ibuGt = null
         } else if (this.ibuRadio === 'gt') {
           this.ibuGt = this.ibu
-          this.ibuLt = this.ibu = null
+          this.ibuLt = null
         } else {
           this.ibu = this.ibuGt = this.ibuLt = null
         }
         // Ebc less than or greater than
         if (this.ebcRadio === 'lt') {
           this.ebcLt = this.ebc
-          this.ebcGt = this.ebc = null
+          this.ebcGt = null
         } else if (this.ebcRadio === 'gt') {
           this.ebcGt = this.ebc
-          this.ebcLt = this.ebc = null
+          this.ebcLt = null
         } else {
           this.ebc = this.ebcGt = this.ebcLt = null
         }
@@ -255,8 +255,38 @@
           this.brewedSelect = this.brewedAfter = this.brewedBefore = null
         }
       },
+      cleanInputs: function () {
+        if (this.abv === '') {
+          this.abv = null
+        }
+        if (this.ibu === '') {
+          this.ibu = null
+        }
+        if (this.ebc === '') {
+          this.ebc = null
+        }
+        if (this.yeast === '') {
+          this.yeast = null
+        }
+        if (this.hops === '') {
+          this.hops = null
+        }
+        if (this.food === '') {
+          this.food = null
+        }
+        if (this.ids === '') {
+          this.ids = null
+        }
+        if (this.malt === '') {
+          this.malt = null
+        }
+        if (this.beerName === '') {
+          this.beerName = null
+        }
+      },
       search: function () {
         this.isLoading = true
+        this.cleanInputs()
         this.prepareParams()
         axios.get(this.baseUrl, {
           params: {

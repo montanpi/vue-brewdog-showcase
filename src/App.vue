@@ -105,11 +105,8 @@
     }
 
     /* TODO extend .router-link-active with .active */
-    /* TODO change navbar colors with defaults */
-    /* TODO separate modal dialog in component and add icons */
-    /* TODO Bootstrap style for cards doesn't work (e.g. .card-inverse) */
     /* TODO Custom validator for alpha and spaces */
     /* TODO Reactive favorite icon (glyphicon-star-empty glyphicon-star) */
     /* TODO Full description in favorites always return first item */
-
+    /* TODO Advanced search: radio buttons not selected */
 </style>
