@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-md-2">
                 <img id="logo" src="../../src/assets/brewdog-logo.png" alt="Brewdog logo">
@@ -25,22 +25,23 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
-                <img class="img-responsive" src="../../src/assets/punk-ipa.png" alt="Punk IPA logo">
+            <div class="col-sm-6 col-md-4 text-center" width="200" height="200">
+                <img class="center-block img-responsive" src="../../src/assets/cocoa-psycho.png" alt="Punk IPA logo">
                 <hr>
                 <h3>Punk IPA</h3>
-                <a href="https://www.brewdog.com/beer/headliners/punk-ipa">Go to official website</a>
+                <a href="https://www.brewdog.com/beer/amplified/cocoa-psycho">Go to official website</a>
             </div>
-            <div class="col-md-4">
-                <img class="img-responsive" src="../../src/assets/jack-hammer.png" alt="Punk IPA logo">
+            <div class="col-sm-6 col-md-4 text-center" width="200" height="200">
+                <img class="center-block img-responsive" src="../../src/assets/jack-hammer.png" alt="Punk IPA logo">
                 <hr>
                 <h3>Jack Hammer</h3>
                 <a href="https://www.brewdog.com/beer/amplified/jack-hammer">Go to official website</a>
             </div>
-            <div class="col-md-4">
-                <img class="img-responsive" src="../../src/assets/vagabond-pale-ale.svg" alt="Punk IPA logo">
+            <div class="col-sm-6 col-md-4 text-center" width="200" height="200">
+                <img class="center-block img-responsive" src="../../src/assets/hardcore-ipa.png" alt="Punk IPA logo">
                 <hr>
-                <a href="https://www.brewdog.com/beer/headliners/punk-ipa">Go to official website</a>
+                <h3>Vagabond Pale Ale</h3>
+                <a href="https://www.brewdog.com/item/7/BrewDog/Hardcore-IPA.html">Go to official website</a>
             </div>
         </div>
     </div>
@@ -62,8 +63,5 @@
     #logo {
         height: 100px;
     }
-
-    /* TODO Adjust top of the page */
-    /* TODO Adjust images size */
 
 </style>

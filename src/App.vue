@@ -58,7 +58,7 @@
   }
 </script>
 
-<style scoped>
+<style>
 
     body {
         padding-bottom: 70px;
@@ -69,7 +69,7 @@
         padding-bottom: 5px;
     }
 
-    /* Remove the navbar's default margin-bottom and rounded borders */
+    /* Remove the navbar's default rounded borders */
     .navbar {
         border-radius: 0;
     }
@@ -96,11 +96,20 @@
 
     .footer,
     .push {
+        margin-top: 30px;
         height: 50px;
+    }
+
+    .has-error {
+        color: red;
     }
 
     /* TODO extend .router-link-active with .active */
     /* TODO change navbar colors with defaults */
     /* TODO separate modal dialog in component and add icons */
+    /* TODO Bootstrap style for cards doesn't work (e.g. .card-inverse) */
+    /* TODO Custom validator for alpha and spaces */
+    /* TODO Reactive favorite icon (glyphicon-star-empty glyphicon-star) */
+    /* TODO Full description in favorites always return first item */
 
 </style>

@@ -8,15 +8,15 @@
                         <label for="exampleFormControlInput1">Email address</label>
                         <input type="email" class="form-control" id="exampleFormControlInput1"
                                placeholder="email@domain.com" v-model="email">
-                        <p class="has-error" v-if="!$v.email.required">Email required</p>
-                        <p class="has-error" v-if="!$v.email.valid">Not a valid email</p>
+                        <span class="has-has-error" v-if="!$v.email.required">Email required</span>
+                        <span class="has-error" v-if="!$v.email.valid">Not a valid email</span>
                     </div>
                     <div class="form-group">
                         <label class="form__label" for="exampleFormControlTextarea1">Your Message</label>
                         <textarea class="form-control form__input" id="exampleFormControlTextarea1" rows="3"
                                   placeholder="Write here your message" v-model="msg"></textarea>
-                        <p class="has-error" v-if="!$v.msg.required">Message required</p>
-                        <p class="has-error" v-if="!$v.msg.valid">Message too short</p>
+                        <span class="has-error" v-if="!$v.msg.required">Message required</span>
+                        <span class="has-error" v-if="!$v.msg.valid">Message too short</span>
                     </div>
                     <div class="form-group">
                         <button type="button" class="btn btn-primary btn-lg" :disabled="$v.$invalid"
@@ -35,13 +35,13 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="confirmationModalLabel">Your message was not saved</h5>
+                        <span class="glyphicon glyphicon-alert">&nbsp</span><span class="modal-title" id="confirmationModalLabel">Your message was not saved</span>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Are you sure you want to exit and lose changes?</p>
+                        <span>Are you sure you want to exit and lose changes?</span>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Stay on page</button>
