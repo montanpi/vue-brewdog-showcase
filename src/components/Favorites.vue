@@ -2,8 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <p>You have {{ count }} favorite beers</p>
-                <p>You have {{ strongAles.length }} favorite strong beers</p>
+                <p>You have {{ count }} favorite beers; {{ strongAles.length }} of them are strong ales.</p>
             </div>
         </div>
         <search-results v-bind:isLoading="isLoading" v-bind:results="favorites"></search-results>
