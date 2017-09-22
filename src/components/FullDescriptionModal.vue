@@ -67,8 +67,9 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">
-                        <i v-if="true" class="glyphicon glyphicon-star-empty"></i>
+                    <button type="button" class="btn btn-primary" data-toggle="tooltip" title="Add to favorites"
+                            data-placement="top" @click="toggleFavorite(result)">
+                        <span class="glyphicon glyphicon-star-empty"></span>
                     </button>
                 </div>
             </div>
@@ -77,10 +78,26 @@
 </template>
 
 <script>
+  import {mapState} from 'vuex'
   export default {
     name: 'full-description-modal',
     props: [
       'result'
-    ]
+    ],
+    computed: {
+      ...mapState({
+        count: state => state.count,
+        favorites: state => state.favorites
+      })
+    },
+    methods: {
+      toggleFavorite: function (result) {
+        if (this.favorites.indexOf(result) !== -1) {
+          this.$store.commit('REMOVE_FAVORITE', result)
+        } else {
+          this.$store.commit('ADD_FAVORITE', result)
+        }
+      }
+    }
   }
 </script>
