@@ -73,7 +73,16 @@
         'strongAles'
       ])
     },
-    components: {FullDescriptionModal}
+    components: {FullDescriptionModal},
+    methods: {
+      toggleFavorite: function (result) {
+        if (this.favorites.indexOf(result) !== -1) {
+          this.$store.commit('REMOVE_FAVORITE', result)
+        } else {
+          this.$store.commit('ADD_FAVORITE', result)
+        }
+      }
+    }
   }
 </script>
 

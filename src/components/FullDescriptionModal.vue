@@ -69,7 +69,6 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary">
                         <i v-if="true" class="glyphicon glyphicon-star-empty"></i>
-                        <i v-if="false" class="glyphicon glyphicon-star"></i>
                     </button>
                 </div>
             </div>

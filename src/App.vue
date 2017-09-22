@@ -107,5 +107,4 @@
     /* TODO extend .router-link-active with .active */
     /* TODO Reactive favorite icon (glyphicon-star-empty glyphicon-star) */
     /* TODO Full description in favorites always return first item */
-    /* TODO Unfavorite beers from favorites tab */
 </style>

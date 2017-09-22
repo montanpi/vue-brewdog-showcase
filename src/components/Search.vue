@@ -100,7 +100,7 @@
             </div>
         </div>
         <div v-if="!isLoading" class="row">
-            <div class="card col-sm-6 col-md-4 col-lg-3" v-for="(result, index) in results">
+            <div class="card col-sm-6 col-md-4 col-lg-3" v-for="result in results">
                 <img class="card-img-top img-responsive center-block" v-bind:src="result.image_url"
                      alt="Card image cap">
                 <div class="card-body">
@@ -115,7 +115,7 @@
                                 class="btn btn-primary">See full description
                         </button>
                         <button type="button" class="btn btn-primary" data-toggle="tooltip" title="Add to favorites"
-                                data-placement="top" @click="toggleFavorite(result, index)">
+                                data-placement="top" @click="toggleFavorite(result)">
                             <span class="glyphicon glyphicon-star-empty"></span>
                         </button>
                         <p>{{ index }} {{ result.name }}</p>
@@ -308,19 +308,14 @@
           }
         })
           .then(response => {
-            for (let i = 0; i < response.data.length; i++) {
-              this.results = response.data
-              this.results[i].favorite = false
-            }
+            this.results = response.data
             this.isLoading = false
           })
       },
-      toggleFavorite: function (result, index) {
+      toggleFavorite: function (result) {
         if (this.favorites.indexOf(result) !== -1) {
-          this.results[index].favorite = false
           this.$store.commit('REMOVE_FAVORITE', result)
         } else {
-          this.results[index].favorite = true
           this.$store.commit('ADD_FAVORITE', result)
         }
       }
