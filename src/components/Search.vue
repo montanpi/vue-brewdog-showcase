@@ -27,7 +27,7 @@
                         <div class="form-group">
                             <label>Abv</label>
                             <label class="radio-inline"><input v-model="abvRadio" type="radio" value="lt">less than</label>
-                            <label class="radio-inline"><input v-model="abvRadio" type="radio" value="gt" checked>greater than</label>
+                            <label class="radio-inline"><input v-model="abvRadio" type="radio" value="gt">greater than</label>
                             <input v-model="abv" type="number" step="0.1" class="form-control input-lg"
                                    @keyup.enter="search" placeholder="Abv">
                             <span class="has-error" v-if="!$v.abv.between">Abv must be between 0% and 100%</span>
@@ -116,9 +116,9 @@
                         </button>
                         <button type="button" class="btn btn-primary" data-toggle="tooltip" title="Add to favorites"
                                 data-placement="top" @click="toggleFavorite(result, index)">
-                            <span class="glyphicon" v-bind:class="[false ? 'glyphicon-star' : 'glyphicon-star-empty']"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
                         </button>
-                        <p>{{ index }} {{ result.favorite }} {{ abv }} {{ ibu }}</p>
+                        <p>{{ index }} {{ result.name }}</p>
                     </div>
                 </div>
                 <full-description-modal :result="result" id="fullDescriptionModal"></full-description-modal>
@@ -145,21 +145,21 @@
         years: [],
 //        Form inputs
         abv: null,
-        abvRadio: null,
+        abvRadio: 'lt',
         abvLt: null,
         abvGt: null,
         ibu: null,
-        ibuRadio: null,
+        ibuRadio: 'lt',
         ibuLt: null,
         ibuGt: null,
         ebc: null,
-        ebcRadio: null,
+        ebcRadio: 'lt',
         ebcLt: null,
         ebcGt: null,
         beerName: null,
         yeast: null,
         brewedSelect: null,
-        brewedRadio: null,
+        brewedRadio: 'before',
         brewedBefore: null,
         brewedAfter: null,
         hops: null,
