@@ -15,9 +15,16 @@ export default {
   },
   methods: {
     toggleFavorite: function (result) {
-      if (this.favorites.indexOf(result) !== -1) {
-        this.$store.commit('REMOVE_FAVORITE', result)
-      } else {
+      let i = 0
+      let removed = false
+      for (i; i < this.favorites.length; i++) {
+        if (this.favorites[i].name === result.name) {
+          this.$store.commit('REMOVE_FAVORITE', i)
+          removed = true
+          break
+        }
+      }
+      if (!removed) {
         this.$store.commit('ADD_FAVORITE', result)
       }
     }

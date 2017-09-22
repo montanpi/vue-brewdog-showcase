@@ -15,13 +15,13 @@ export default new Vuex.Store({
       state.count++
     },
     REMOVE_FAVORITE (state, payload) {
-      state.favorites.splice(state.favorites.indexOf(payload), 1)
+      state.favorites.splice(payload, 1)
       state.count--
     }
-  },
-  // Returns beers with alcohol greater than 8%
+  },  // Returns beers with alcohol greater than 8%
   getters: {
     strongAles (state) {
+      console.log(state.favorites)
       return _.filter(state.favorites.__ob__.value, ale => ale.abv > 8)
     }
   }
