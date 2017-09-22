@@ -26,7 +26,7 @@
                         </button>
                     </div>
                 </div>
-                <full-description-modal :result="favorite" id="fullDescriptionModal"></full-description-modal>
+                <full-description-modal v-bind:result="favorite" id="fullDescriptionModal"></full-description-modal>
             </div>
         </div>
         <p>You have {{ strongAles.length }} favorite strong beers</p>
@@ -57,32 +57,12 @@
 </template>
 
 <script>
-  import {mapState, mapGetters} from 'vuex'
   import FullDescriptionModal from './FullDescriptionModal.vue'
+  import mixin from './mixins/mixin'
 
   export default {
-    computed: {
-      ...mapState([
-        'count'
-      ]),
-      // Just to show alternative ...mapState syntax
-      ...mapState({
-        favorites: state => state.favorites
-      }),
-      ...mapGetters([
-        'strongAles'
-      ])
-    },
     components: {FullDescriptionModal},
-    methods: {
-      toggleFavorite: function (result) {
-        if (this.favorites.indexOf(result) !== -1) {
-          this.$store.commit('REMOVE_FAVORITE', result)
-        } else {
-          this.$store.commit('ADD_FAVORITE', result)
-        }
-      }
-    }
+    mixins: [mixin]
   }
 </script>
 

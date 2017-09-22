@@ -99,44 +99,21 @@
                 <div class="loader center-block"></div>
             </div>
         </div>
-        <div v-if="!isLoading" class="row">
-            <div class="card col-sm-6 col-md-4 col-lg-3" v-for="result in results">
-                <img class="card-img-top img-responsive center-block" v-bind:src="result.image_url"
-                     alt="Card image cap">
-                <div class="card-body">
-                    <h4 class="card-title">{{ result.name}}</h4>
-                    <p class="card-text">ABV: {{ result.abv }}%</p>
-                    <p class="card-text">Malts: <span v-for="(item, index) in result.ingredients.malt">{{ item.name
-                        }}<span v-if="index != (result.ingredients.malt.length - 1)">, </span></span></p>
-                    <p class="card-text">Hops: <span v-for="(item, index) in result.ingredients.hops">{{ item.name
-                        }}<span v-if="index != (result.ingredients.hops.length - 1)">, </span></span></p>
-                    <div class="btn-group">
-                        <button data-toggle="modal" data-target="#fullDescriptionModal" type="button"
-                                class="btn btn-primary">See full description
-                        </button>
-                        <button type="button" class="btn btn-primary" data-toggle="tooltip" title="Add to favorites"
-                                data-placement="top" @click="toggleFavorite(result)">
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                        </button>
-                        <p>{{ index }} {{ result.name }}</p>
-                    </div>
-                </div>
-                <full-description-modal :result="result" id="fullDescriptionModal"></full-description-modal>
-            </div>
-        </div>
+        <search-results v-bind:isLoading="isLoading" v-bind:results="results"></search-results>
     </div>
 </template>
 
 <script>
   import axios from 'axios'
-  import {mapState} from 'vuex'
   import {numeric, between} from 'vuelidate/lib/validators'
-  import FullDescriptionModal from './FullDescriptionModal.vue'
+  import SearchResults from './SearchResults.vue'
   import alphaSpaces from '../validator/AlphaSpacesValidator'
 
   export default {
     name: 'search',
-    components: {FullDescriptionModal},
+    components: {
+      SearchResults
+    },
     data () {
       return {
         baseUrl: 'https://api.punkapi.com/v2/beers',
@@ -198,12 +175,6 @@
       for (let i = 2008; i <= new Date().getFullYear(); i++) {
         this.years.push(i)
       }
-    },
-    computed: {
-      ...mapState({
-        count: state => state.count,
-        favorites: state => state.favorites
-      })
     },
     methods: {
       random: function () {
@@ -311,30 +282,12 @@
             this.results = response.data
             this.isLoading = false
           })
-      },
-      toggleFavorite: function (result) {
-        if (this.favorites.indexOf(result) !== -1) {
-          this.$store.commit('REMOVE_FAVORITE', result)
-        } else {
-          this.$store.commit('ADD_FAVORITE', result)
-        }
       }
     }
   }
 </script>
 
 <style scoped>
-    .card {
-        padding-right: 40px;
-        padding-left: 40px;
-        padding-top: 10px;
-        padding-bottom: 20px;
-        height: 700px;
-    }
-
-    img {
-        height: 300px;
-    }
 
     .loader {
         border: 16px solid #f8f8f8; /* Light grey */
