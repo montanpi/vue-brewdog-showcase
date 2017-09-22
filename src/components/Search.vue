@@ -50,7 +50,7 @@
                             <label>Yeast</label>
                             <input v-model="yeast" type="text" class="form-control input-lg" @keyup.enter="search"
                                    placeholder="Yeast">
-                            <span class="has-error" v-if="!$v.yeast.alpha">Only alphabet characters are allowed.</span>
+                            <span class="has-error" v-if="!$v.yeast.alphaSpaces">Only alphabet characters are allowed.</span>
                         </div>
                         <div class="form-group">
                             <label>Brewed</label>
@@ -65,19 +65,19 @@
                             <label>Hops</label>
                             <input v-model="hops" type="text" class="form-control input-lg" @keyup.enter="search"
                                    placeholder="Hops">
-                            <span class="has-error" v-if="!$v.hops.alpha">Only alphabet characters are allowed.</span>
+                            <span class="has-error" v-if="!$v.hops.alphaSpaces">Only alphabet characters are allowed.</span>
                         </div>
                         <div class="form-group">
                             <label>Malt</label>
                             <input v-model="malt" type="text" class="form-control input-lg" @keyup.enter="search"
                                    placeholder="Malt">
-                            <span class="has-error" v-if="!$v.malt.alpha">Only alphabet characters are allowed.</span>
+                            <span class="has-error" v-if="!$v.malt.alphaSpaces">Only alphabet characters are allowed.</span>
                         </div>
                         <div class="form-group">
                             <label>Food</label>
                             <input v-model="food" type="text" class="form-control input-lg" @keyup.enter="search"
                                    placeholder="Food">
-                            <span class="has-error" v-if="!$v.food.alpha">Only alphabet characters are allowed.</span>
+                            <span class="has-error" v-if="!$v.food.alphaSpaces">Only alphabet characters are allowed.</span>
                         </div>
                         <div class="form-group">
                             <label>Id</label>
@@ -130,8 +130,9 @@
 <script>
   import axios from 'axios'
   import {mapState} from 'vuex'
-  import {numeric, between, alpha} from 'vuelidate/lib/validators'
+  import {numeric, between} from 'vuelidate/lib/validators'
   import FullDescriptionModal from './FullDescriptionModal.vue'
+  import alphaSpaces from '../validator/AlphaSpacesValidator'
 
   export default {
     name: 'search',
@@ -178,16 +179,16 @@
         between: between(0, 500)
       },
       yeast: {
-        alpha
+        alphaSpaces
       },
       hops: {
-        alpha
+        alphaSpaces
       },
       malt: {
-        alpha
+        alphaSpaces
       },
       food: {
-        alpha
+        alphaSpaces
       },
       ids: {
         numeric

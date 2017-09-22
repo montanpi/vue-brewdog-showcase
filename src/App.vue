@@ -109,4 +109,5 @@
     /* TODO Reactive favorite icon (glyphicon-star-empty glyphicon-star) */
     /* TODO Full description in favorites always return first item */
     /* TODO Advanced search: radio buttons not selected */
+    /* TODO Unfavorite beers from favorites tab */
 </style>

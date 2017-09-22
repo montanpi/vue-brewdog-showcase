@@ -29,7 +29,7 @@
                 <full-description-modal :result="favorite" id="fullDescriptionModal"></full-description-modal>
             </div>
         </div>
-        <p>You have {{ strongAles.length }} strong beers</p>
+        <p>You have {{ strongAles.length }} favorite strong beers</p>
         <div class="row">
             <div class="card col-sm-6 col-md-4 col-lg-3" v-for="strongAle in strongAles">
                 <img class="card-img-top img-responsive center-block" v-bind:src="strongAle.image_url"
