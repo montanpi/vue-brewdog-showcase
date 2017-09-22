@@ -15,16 +15,16 @@
                     </div>
                     <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav">
-                            <li>
+                            <li v-bind:class="{active : $route.path === '/search'}">
                                 <router-link to="/search">Search</router-link>
                             </li>
-                            <li>
+                            <li v-bind:class="{active : $route.path === '/favorites'}">
                                 <router-link to="/favorites">Favorites</router-link>
                             </li>
-                            <li>
+                            <li v-bind:class="{active : $route.path === '/about'}">
                                 <router-link to="/about">About</router-link>
                             </li>
-                            <li>
+                            <li v-bind:class="{active : $route.path === '/contact'}">
                                 <router-link to="/contact">Contact</router-link>
                             </li>
                         </ul>
@@ -104,7 +104,6 @@
         color: red;
     }
 
-    /* TODO extend .router-link-active with .active */
     /* TODO Reactive favorite icon (glyphicon-star-empty glyphicon-star) */
     /* TODO Full description in favorites always return first item */
 </style>

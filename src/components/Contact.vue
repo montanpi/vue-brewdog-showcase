@@ -8,7 +8,7 @@
                         <label for="exampleFormControlInput1">Email address</label>
                         <input type="email" class="form-control" id="exampleFormControlInput1"
                                placeholder="email@domain.com" v-model="email">
-                        <span class="has-has-error" v-if="!$v.email.required">Email required</span>
+                        <span class="has-error" v-if="!$v.email.required">Email required</span>
                         <span class="has-error" v-if="!$v.email.valid">Not a valid email</span>
                     </div>
                     <div class="form-group">
