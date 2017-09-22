@@ -104,6 +104,6 @@
         color: red;
     }
 
-    /* TODO Reactive favorite icon (glyphicon-star-empty glyphicon-star) */
     /* TODO Full description in favorites always return first item */
+
 </style>

@@ -16,7 +16,7 @@
                     </button>
                     <button type="button" class="btn btn-primary" data-toggle="tooltip" title="Add to favorites"
                             data-placement="top" @click="toggleFavorite(result)">
-                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star" v-bind:class="{ 'glyphicon-star-empty' : !isFavorite(result.name) }"></span>
                     </button>
                 </div>
             </div>

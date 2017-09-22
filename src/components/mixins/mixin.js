@@ -27,6 +27,15 @@ export default {
       if (!removed) {
         this.$store.commit('ADD_FAVORITE', result)
       }
+    },
+    isFavorite (name) {
+      let i = 0
+      for (i; i < this.favorites.length; i++) {
+        if (this.favorites[i].name === name) {
+          return true
+        }
+      }
+      return false
     }
   }
 }
