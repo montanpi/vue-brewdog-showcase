@@ -21,7 +21,6 @@ export default new Vuex.Store({
   },  // Returns beers with alcohol greater than 8%
   getters: {
     strongAles (state) {
-      console.log(state.favorites)
       return _.filter(state.favorites.__ob__.value, ale => ale.abv > 8)
     }
   }

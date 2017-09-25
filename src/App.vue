@@ -104,6 +104,4 @@
         color: red;
     }
 
-    /* TODO Full description in favorites always return first item */
-
 </style>

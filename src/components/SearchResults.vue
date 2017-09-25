@@ -16,11 +16,11 @@
                     </button>
                     <button type="button" class="btn btn-primary" data-toggle="tooltip" title="Add to favorites"
                             data-placement="top" @click="toggleFavorite(result)">
-                        <span class="glyphicon glyphicon-star" v-bind:class="{ 'glyphicon-star-empty' : !isFavorite(result.name) }"></span>
+                        <span class="glyphicon glyphicon-star" v-bind:class="{ 'glyphicon-star-empty' : !isFavorite(result.id) }"></span>
                     </button>
                 </div>
             </div>
-            <full-description-modal :result="result" id="fullDescriptionModal"></full-description-modal>
+            <full-description-modal v-bind:result="result" id="fullDescriptionModal"></full-description-modal><p>{{ result }}</p>
         </div>
     </div>
 </template>

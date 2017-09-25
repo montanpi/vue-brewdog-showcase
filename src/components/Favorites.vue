@@ -2,10 +2,11 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <p>You have {{ count }} favorite beers; {{ strongAles.length }} of them are strong ales.</p>
+                <span v-if="favorites.length > 1 ">You have {{ count }} favorite beers<span v-if="strongAles.length == 0">.</span><span v-if="strongAles.length == 1">; one of them is a strong ale.</span></span><span v-if="strongAles.length > 1"> {{ strongAles.length }} of them are strong ales.</span></p>
+                <p v-if="favorites.length == 1 ">You have {{ count }} favorite beer<span v-if="strongAles.length == 0">.</span><span v-if="strongAles.length == 1">; it's a strong ale.</span></p>
             </div>
         </div>
-        <search-results v-bind:isLoading="isLoading" v-bind:results="favorites"></search-results>
+        <search-results v-bind:results="favorites"></search-results>
     </div>
 </template>
 

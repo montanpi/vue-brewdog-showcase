@@ -18,7 +18,7 @@ export default {
       let i = 0
       let removed = false
       for (i; i < this.favorites.length; i++) {
-        if (this.favorites[i].name === result.name) {
+        if (this.favorites[i].id === result.id) {
           this.$store.commit('REMOVE_FAVORITE', i)
           removed = true
           break
@@ -28,10 +28,10 @@ export default {
         this.$store.commit('ADD_FAVORITE', result)
       }
     },
-    isFavorite (name) {
+    isFavorite (id) {
       let i = 0
       for (i; i < this.favorites.length; i++) {
-        if (this.favorites[i].name === name) {
+        if (this.favorites[i].id === id) {
           return true
         }
       }
