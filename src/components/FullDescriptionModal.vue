@@ -1,5 +1,5 @@
 <template>
-    <div class="modal fade" id="fullDescriptionModal" tabindex="-1" role="dialog"
+    <div class="modal fade" tabindex="-1" role="dialog" v-bind:id="'fullDescriptionModal' + result.id"
          aria-labelledby="fullDescriptionModalLabel"
          aria-hidden="true">
         <div class="modal-dialog" role="document">

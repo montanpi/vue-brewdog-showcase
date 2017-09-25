@@ -11,7 +11,7 @@
                 <p class="card-text">Hops: <span v-for="(item, index) in result.ingredients.hops">{{ item.name
                     }}<span v-if="index != (result.ingredients.hops.length - 1)">, </span></span></p>
                 <div class="btn-group">
-                    <button data-toggle="modal" data-target="#fullDescriptionModal" type="button"
+                    <button data-toggle="modal" v-bind:data-target="'#fullDescriptionModal' + result.id" type="button"
                             class="btn btn-primary">See full description
                     </button>
                     <button type="button" class="btn btn-primary" data-toggle="tooltip" title="Add to favorites"
@@ -20,7 +20,7 @@
                     </button>
                 </div>
             </div>
-            <full-description-modal v-bind:result="result" id="fullDescriptionModal"></full-description-modal><p>{{ result }}</p>
+            <full-description-modal v-bind:result="result"></full-description-modal>
         </div>
     </div>
 </template>
