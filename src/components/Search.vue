@@ -28,7 +28,7 @@
                             <label>Abv</label>
                             <label class="radio-inline"><input v-model="abvRadio" type="radio" value="lt">less than</label>
                             <label class="radio-inline"><input v-model="abvRadio" type="radio" value="gt">greater than</label>
-                            <input v-model="abv" type="number" step="0.1" class="form-control input-lg"
+                            <input v-model="abv" type="number" class="form-control input-lg" min="0"
                                    @keyup.enter="search" placeholder="Abv">
                             <span class="has-error" v-if="!$v.abv.between">Abv must be between 0% and 100%</span>
                         </div>
@@ -36,15 +36,15 @@
                             <label>Ibu</label>
                             <label class="radio-inline"><input v-model="ibuRadio" value='lt' type="radio">less than</label>
                             <label class="radio-inline"><input v-model="ibuRadio" value='gt' type="radio">greater than</label>
-                            <input v-model="ibu" type="number" class="form-control input-lg" @keyup.enter="search"
-                                   placeholder="Ibu">
+                            <input v-model="ibu" type="number" class="form-control input-lg" min="0"
+                                   @keyup.enter="search" placeholder="Ibu">
                         </div>
                         <div class="form-group">
                             <label>Ebc</label>
                             <label class="radio-inline"><input v-model="ebcRadio" type="radio" value="lt">less than</label>
                             <label class="radio-inline"><input v-model="ebcRadio" type="radio" value="gt">greater than</label>
-                            <input v-model="ebc" type="number" class="form-control input-lg" @keyup.enter="search"
-                                   placeholder="Ebc">
+                            <input v-model="ebc" type="number" class="form-control input-lg" min="0"
+                                   @keyup.enter="search" placeholder="Ebc">
                         </div>
                         <div class="form-group">
                             <label>Yeast</label>
@@ -55,9 +55,8 @@
                         <div class="form-group">
                             <label>Brewed</label>
                             <label class="radio-inline"><input v-model="brewedRadio" value="before" type="radio">before</label>
-                            <label class="radio-inline"><input v-model="brewedRadio" value="after" type="radio" checked>after</label>
-                            <select v-model="brewedSelect" class="form-control input-lg" @keyup.enter="search"
-                                    placeholder="Brewed">
+                            <label class="radio-inline"><input v-model="brewedRadio" value="after" type="radio">after</label>
+                            <select v-model="brewedSelect" class="form-control input-lg" @keyup.enter="search" title="brewed">
                                 <option v-for="year in years" v-bind:value="year">{{ year }}</option>
                             </select>
                         </div>
@@ -122,21 +121,21 @@
         years: [],
 //        Form inputs
         abv: null,
-        abvRadio: 'lt',
+        abvRadio: 'gt',
         abvLt: null,
         abvGt: null,
         ibu: null,
-        ibuRadio: 'lt',
+        ibuRadio: 'gt',
         ibuLt: null,
         ibuGt: null,
         ebc: null,
-        ebcRadio: 'lt',
+        ebcRadio: 'gt',
         ebcLt: null,
         ebcGt: null,
         beerName: null,
         yeast: null,
         brewedSelect: null,
-        brewedRadio: 'before',
+        brewedRadio: 'after',
         brewedBefore: null,
         brewedAfter: null,
         hops: null,
@@ -217,14 +216,12 @@
           this.ebc = this.ebcGt = this.ebcLt = null
         }
         // Brewed before or brewed after
-        if (this.brewedRadio === 'before') {
+        if (this.brewedRadio === 'before' && this.brewedSelect !== null) {
           this.brewedBefore = '01-' + this.brewedSelect
           this.brewedAfter = null
-        } else if (this.brewedRadio === 'after') {
+        } else if (this.brewedRadio === 'after' && this.brewedSelect !== null) {
           this.brewedAfter = '12-' + this.brewedSelect
           this.brewedBefore = null
-        } else {
-          this.brewedSelect = this.brewedAfter = this.brewedBefore = null
         }
       },
       cleanInputs: function () {
