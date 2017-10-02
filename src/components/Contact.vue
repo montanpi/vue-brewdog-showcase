@@ -5,15 +5,15 @@
                 <h1>Contact Us</h1>
                 <form>
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">Email address</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1"
+                        <label for="email">Email address</label>
+                        <input type="email" class="form-control" id="email"
                                placeholder="email@domain.com" v-model="email">
                         <span class="has-error" v-if="!$v.email.required">Email required</span>
                         <span class="has-error" v-if="!$v.email.valid">Not a valid email</span>
                     </div>
                     <div class="form-group">
-                        <label class="form__label" for="exampleFormControlTextarea1">Your Message</label>
-                        <textarea class="form-control form__input" id="exampleFormControlTextarea1" rows="3"
+                        <label for="msg">Your Message</label>
+                        <textarea class="form-control" id="msg" rows="3"
                                   placeholder="Write here your message" v-model="msg"></textarea>
                         <span class="has-error" v-if="!$v.msg.required">Message required</span>
                         <span class="has-error" v-if="!$v.msg.valid">Message too short</span>
