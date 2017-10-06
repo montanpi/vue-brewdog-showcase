@@ -104,4 +104,5 @@
         color: red;
     }
 
+    /* TODO Alert when submitting contact form */
 </style>
