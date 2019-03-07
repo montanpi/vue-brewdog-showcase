@@ -1,6 +1,6 @@
 # vue-brewdog-showcase
 
-> A Vue.js demo project that shows info about brewdog beers
+> A Vue.js demo project showing info about brewdog beers
 
 ## Build Setup
 
