@@ -39,7 +39,7 @@
                 &copy {{ year }} &nbsp
             </span>
             <span class="text-uppercase">
-                  Engage People Inc. &nbsp
+                  montanpi &nbsp
             </span>
             <span>
                 All rights reserved.</span>
